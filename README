@@ -1,0 +1,70 @@
+# RESTful API with Authentication and Resource Management
+
+This is a Node.js-based RESTful API that allows users to create, read, update, and delete resources. The API provides features like authentication and authorization using JWT tokens, input validation and error handling, integration with MongoDB using Mongoose, pagination and sorting of resources, and caching of frequently accessed resources.
+
+## Features
+
+- User registration and login using JWT tokens
+- Secure password storage using bcrypt hashing
+- CRUD operations for managing resources
+- Pagination and sorting of resources
+- Caching of frequently accessed resources
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT for authentication and authorization
+- bcrypt for password hashing
+- Redis for caching (optional)
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following software installed on your machine:
+
+- Node.js: https://nodejs.org
+- MongoDB: https://www.mongodb.com (or use a MongoDB service like MongoDB Atlas)
+- (Optional) Redis: https://redis.io (if you want to enable caching)
+
+### Installation
+
+1. Clone the repository:
+
+
+3. Install the dependencies:
+
+
+4. Set up environment variables:
+
+Create a `.env` file in the project's root directory and add the following content:
+
+PORT=3000
+MONGODB_URI=<your-mongodb-connection-string>
+JWT_SECRET=<your-jwt-secret>
+
+Replace `<your-mongodb-connection-string>` with your MongoDB connection string, and `<your-jwt-secret>` with a secret key for signing JWT tokens.
+
+(Optional) If you're using Redis for caching, add the following environment variable to `.env`:
+
+REDIS_URL=<your-redis-connection-string>
+
+Replace `<your-redis-connection-string>` with the connection string for your Redis server.
+
+5. Start the server:
+
+
+The server will start running on the specified port (default is 3000).
+
+## API Endpoints
+
+- **POST /api/auth/register**: Register a new user.
+- **POST /api/auth/login**: User login.
+- **GET /api/resources**: Get all resources with pagination and sorting.
+- **POST /api/resources**: Create a new resource.
+- **PUT /api/resources/:id**: Update a resource.
+- **DELETE /api/resources/:id**: Delete a resource.
+
+Note: All resource-related endpoints require authentication using a JWT token. Include the token in the `Authorization` header as `Bearer <token>`.
